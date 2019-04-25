@@ -1,5 +1,12 @@
 # Termux Build
-install: deps configs
+
+SCRIPT_NAME = dostuff
+BINARY_PATH = /data/data/com.termux/files/usr/local/bin
+
+all: build install
+
+build: deps configs
+install: install-bin
 
 deps:
 	@echo "android/$@"
@@ -10,3 +17,12 @@ configs:
 	@echo "android/$@"
 	cp bashrc $(HOME)/.bashrc
 	cp tmux.conf $(HOME)/.tmux.conf
+
+install-bin: local-bin-dir
+	chmod +x $(SCRIPT_NAME).py
+	cp $(SCRIPT_NAME).py $(BINARY_PATH)/$(SCRIPT_NAME)
+
+local-bin-dir:
+	mkdir -p $(BINARY_PATH)
+	chown -R $(shell whoami) $(BINARY_PATH)
+	echo 'export PATH=$(BINARY_PATH):$$PATH' >> ~/.bashrc
