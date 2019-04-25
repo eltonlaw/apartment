@@ -4,9 +4,10 @@ Crappy home automation
 
 ## Setup
 
-### Android
+### Phone
 
-Download a terminal emulator, [Termux](https://termux.com/) seems good and you get get it from the PlayStore,
+
+I used a spare Samsung Galaxy A5 I had lying around. Download a terminal emulator, [Termux](https://termux.com/) seems good and you can get it from the PlayStore,
 
 Get a copy of this repo and install dependencies
 
@@ -16,4 +17,4 @@ Get a copy of this repo and install dependencies
     $ cd apartment/android
     ```
 
-Get root access. Googling your model number should return some results. I have a Galaxy A5, so it was a relatively simple process using Odin.
+Get root access. Googling your model number should return some results. With Samsung it is a relatively simple process using Odin.
