@@ -1,9 +1,4 @@
 export EDITOR="vim"
-export PS1="\[\033[01;32m\]$ \[\033[0m\]"
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-
-alias ls='ls -Gh --color=auto'
 alias ta="tmux attach"
 
 neofetch
