@@ -2,7 +2,7 @@
 
 SCRIPT_NAME = dostuff
 BINARY_NAME = qq
-BINARY_PATH = /data/data/com.termux/files/usr/local/bin
+BINARY_PATH = $$HOME/bin
 
 all: build install
 
