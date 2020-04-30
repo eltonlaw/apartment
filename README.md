@@ -2,6 +2,12 @@
 
 Crappy home automation for my favourite box
 
+ - [ ] Central log server with ESP-8266
+ - [ ] Octoprint physical killswitch
+ - [ ] Train model on camera images/video to detect for anomalies; overextrusion, elephants foot, skips, stringing, fire 
+ - [X] Network address and mask of nearby network devices
+ - [ ] Raspberry Pi time, voltage, temperature and octoprint status logging
+
 ## Setup
 
 ### Phone (Termux)
