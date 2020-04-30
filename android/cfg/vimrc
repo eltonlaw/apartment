@@ -2,7 +2,6 @@ set t_Co=256
 syntax on
 set nocompatible
 set hlsearch " Highlighting search
-set background=light 
 set tabstop=4 
 set shiftwidth=4 
 set softtabstop=4

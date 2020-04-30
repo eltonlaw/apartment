@@ -1,5 +1,6 @@
-#!/data/data/com.termux/files/usr/bin/python
+#!/usr/bin/env python
 import argparse
+import subprocess
 import requests
 
 print("--- Apartment ---")

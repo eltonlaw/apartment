@@ -16,8 +16,9 @@ deps:
 
 configs:
 	@echo "android/$@"
-	cp bashrc $(HOME)/.bashrc
-	cp tmux.conf $(HOME)/.tmux.conf
+	cp cfg/vimrc $(HOME)/.vimrc
+	cp cfg/bashrc $(HOME)/.bashrc
+	cp cfg/tmux.conf $(HOME)/.tmux.conf
 
 install-bin: local-bin-dir
 	chmod +x $(SCRIPT_NAME).py
