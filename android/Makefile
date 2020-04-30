@@ -1,13 +1,15 @@
-# Termux Build
-
-SCRIPT_NAME = dostuff
 BINARY_NAME = qq
 BINARY_PATH = $$HOME/bin
 
-all: build install
+build:
+	cd src && $(MAKE) $@ BINARY_NAME=$(BINARY_NAME) BINARY_PATH=$(BINARY_PATH)
 
-build: deps configs
-install: install-bin
+.PHONY: clean
+clean:
+	cd src && $(MAKE) $@ BINARY_NAME=$(BINARY_NAME) BINARY_PATH=$(BINARY_PATH)
+
+setup: deps configs
+install: setup build install
 
 deps:
 	@echo "android/$@"
@@ -20,9 +22,8 @@ configs:
 	cp cfg/bashrc $(HOME)/.bashrc
 	cp cfg/tmux.conf $(HOME)/.tmux.conf
 
-install-bin: local-bin-dir
-	chmod +x $(SCRIPT_NAME).py
-	cp $(SCRIPT_NAME).py $(BINARY_PATH)/$(BINARY_NAME)
+install: local-bin-dir
+	cp ./$(BINARY_NAME) $(BINARY_PATH)/$(BINARY_NAME)
 	@echo "If first time install, make sure to source ~/.bashrc"
 
 local-bin-dir:
