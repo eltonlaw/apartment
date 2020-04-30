@@ -22,6 +22,7 @@ configs:
 install-bin: local-bin-dir
 	chmod +x $(SCRIPT_NAME).py
 	cp $(SCRIPT_NAME).py $(BINARY_PATH)/$(BINARY_NAME)
+	@echo "If first time install, make sure to source ~/.bashrc"
 
 local-bin-dir:
 	mkdir -p $(BINARY_PATH)
