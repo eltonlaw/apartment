@@ -4,6 +4,11 @@ BINARY_PATH = $$HOME/bin
 build:
 	cd src && $(MAKE) $@ BINARY_NAME=$(BINARY_NAME) BINARY_PATH=$(BINARY_PATH)
 
+# yay -S bear
+# Tool to generate a compile_commands.json for ccls
+tooling:
+	bear make
+
 .PHONY: clean
 clean:
 	cd src && $(MAKE) $@ BINARY_NAME=$(BINARY_NAME) BINARY_PATH=$(BINARY_PATH)
