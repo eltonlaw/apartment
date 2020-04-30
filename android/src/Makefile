@@ -7,7 +7,7 @@ CFLAGS=-I$(INCLUDE_DIR)
 
 TARGET_DIR=../target
 
-LIBS=-lm
+LIBS=-lm -lpcap
 
 _HEADERS = $(patsubst %,$(INCLUDE_DIR)/%,$(HEADERS))
 

@@ -1,1 +1,1 @@
-void myPrintHelloMake(void);
+void scan_devices(void);
