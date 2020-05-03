@@ -13,20 +13,6 @@ tooling:
 clean:
 	cd src && $(MAKE) $@ BINARY_NAME=$(BINARY_NAME) BINARY_PATH=$(BINARY_PATH)
 
-setup: deps configs
-install: setup build install
-
-deps:
-	@echo "android/$@"
-	pkg install -y make vim tmux python neofetch nmap
-	python -m pip install requests
-
-configs:
-	@echo "android/$@"
-	cp cfg/vimrc $(HOME)/.vimrc
-	cp cfg/bashrc $(HOME)/.bashrc
-	cp cfg/tmux.conf $(HOME)/.tmux.conf
-
 install: local-bin-dir
 	cp ./$(BINARY_NAME) $(BINARY_PATH)/$(BINARY_NAME)
 	@echo "If first time install, make sure to source ~/.bashrc"
