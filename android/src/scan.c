@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <pcap.h>
 #include <errno.h>
 #include <sys/socket.h>
@@ -23,9 +24,8 @@ void scan_devices(void) {
     char errbuf[PCAP_ERRBUF_SIZE];
 
     /* Get all valid devices */
-    pcap_if_t *alldevs;
-    ret = pcap_findalldevs(&alldevs, errbuf);
-    if(ret == -1) {
+    pcap_if_t* alldevs;
+    ret = pcap_findalldevs(&alldevs, errbuf); if(ret == -1) {
         printf("Error encountered looking up device.\n%s\n",errbuf);
         exit(1);
     }
@@ -36,30 +36,35 @@ void scan_devices(void) {
 
     bpf_u_int32 netp;  // ip
     bpf_u_int32 maskp; // subnet mask
-    char* net;
-    char* mask;
-    char *dev_name;
+    char net[20];
+    char mask[20];
+    char* dev_name;
     pcap_if_t *dev;
 
     dev = alldevs;
     while (1) {
         dev_name = dev->name;
-        printf("DEV: %s\n",dev_name);
         /*  network address and mask of the device */
-        ret = pcap_lookupnet(dev_name,&netp,&maskp,errbuf);
+        ret = pcap_lookupnet(dev_name, &netp, &maskp, errbuf);
         if(ret == -1) {
-            printf("%s\n",errbuf);
+            printf("%s\n", errbuf);
             exit(1);
         }
-        net = address_text(netp);
-        printf("NET: %s\n", net);
-        mask = address_text(maskp);
-        printf("MASK: %s\n",mask);
+        strcpy(net, address_text(netp));
+        strcpy(mask, address_text(maskp));
 
         dev = dev->next;
-        if (dev == NULL) {
+        if (dev == NULL)
             break;
-        }
+
+        if (0 != strcmp(net, "0.0.0.0"))
+            break;
     }
+
+    printf("DEVICE: %s\n", dev_name);
+    printf("DESCRIPTION: %s\n", dev->description);
+    printf("FLAGS: %d\n", dev->flags);
+    printf("NET: %s\n", net);
+    printf("MASK: %s\n", mask);
     pcap_freealldevs(alldevs);
 }

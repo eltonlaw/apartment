@@ -3,7 +3,7 @@ OBJECTS = main.o scan.o
 
 INCLUDE_DIR =../include
 CC=gcc
-CFLAGS=-I$(INCLUDE_DIR)
+CFLAGS=-g -I$(INCLUDE_DIR)
 
 TARGET_DIR=../target
 
