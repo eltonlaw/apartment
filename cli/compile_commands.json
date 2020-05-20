@@ -1,0 +1,15 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-I../include",
+            "-o",
+            "../target/http.o",
+            "http.c"
+        ],
+        "directory": "/home/d0nkrs/dev/home/cli/src",
+        "file": "http.c"
+    }
+]

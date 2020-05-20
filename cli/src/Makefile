@@ -1,5 +1,5 @@
-HEADERS = scan.h
-OBJECTS = main.o scan.o 
+HEADERS = scan.h http.h
+OBJECTS = main.o scan.o http.o
 
 INCLUDE_DIR =../include
 CC=gcc
@@ -7,7 +7,7 @@ CFLAGS=-g -I$(INCLUDE_DIR)
 
 TARGET_DIR=../target
 
-LIBS=-lm -lpcap
+LIBS=-lm -lpcap -lcurl
 
 _HEADERS = $(patsubst %,$(INCLUDE_DIR)/%,$(HEADERS))
 
