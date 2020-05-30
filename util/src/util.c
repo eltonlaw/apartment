@@ -1,4 +1,4 @@
-// NOTE: run `make tooling` if getting CCLS warnings
+/** @file */
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -9,6 +9,8 @@ int gives_5() {
     return 5;
 }
 
+/// Compare two int arrays, returning 1 if all indexes up to `s`
+/// are equal between `arr1` and `arr2`
 int arrcmp(int s, int* arr1, int* arr2) {
     int is_equal = 1;
     for (int i = 0; i < s; i++) {

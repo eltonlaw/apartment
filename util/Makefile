@@ -4,3 +4,6 @@ build clean:
 
 test: build
 	cd test && $(MAKE) $@
+
+docs:
+	doxygen Doxyfile

@@ -27,5 +27,6 @@ int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_gives_5);
     RUN_TEST(test_arrcmp);
+    RUN_TEST(test_insertion_sort);
     return UNITY_END();
 }
