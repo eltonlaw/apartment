@@ -14,8 +14,18 @@ void test_gives_5(void)
     TEST_ASSERT_EQUAL_INT(5, gives_5());
 }
 
+void test_arrcmp(void) {
+    int arr1[5] = {1, 2, 3, 4, 5};
+    int arr2[5] = {2, 1, 3, 4, 5};
+    int arr3[5] = {1, 2, 3, 4, 6};
+	TEST_ASSERT_EQUAL_INT(1, arrcmp(5, arr1, arr1));
+	TEST_ASSERT_EQUAL_INT(0, arrcmp(5, arr1, arr2));
+	TEST_ASSERT_EQUAL_INT(0, arrcmp(5, arr1, arr3));
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_gives_5);
+    RUN_TEST(test_arrcmp);
     return UNITY_END();
 }
