@@ -1,6 +1,7 @@
 cli/qq
 */target
 */compile_commands.json
-*/*.o
+*/*/*.o
+*/*/*.out
 */*.s
 */*.hex

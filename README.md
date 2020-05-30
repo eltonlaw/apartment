@@ -22,6 +22,9 @@ Miscellaneous shared scripts:
 
 - Get IP address of current device
 
+## cv
+
+Some OpenCV code
 ## rc-car
 
 Small autonomous toy car that changes direction when it detects an impact.
