@@ -44,3 +44,19 @@ void insertion_sort(int s, int* arr, int* new_arr) {
     }
     return;
 }
+
+/// Insertion sort. Mutates input
+void insertion_sort_mut(int s, int* arr) {
+    int j;
+    int val;
+    for (int i=1; i < s; i++) {
+        val = arr[i];
+        j = i - 1;
+        while ((j > -1) && (val < arr[j])) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = val;
+    }
+    return;
+}

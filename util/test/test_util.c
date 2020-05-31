@@ -32,10 +32,19 @@ void test_insertion_sort(void) {
 	TEST_ASSERT_EQUAL_INT(1, arrcmp(7, expected, actual));
 }
 
+void test_insertion_sort_mut(void) {
+	int actual[7] = {5, 4, 6, 2, 3, 9, 8};
+	insertion_sort_mut(7, actual);
+	int expected[7] = {2, 3, 4, 5, 6, 8, 9};
+
+	TEST_ASSERT_EQUAL_INT(1, arrcmp(7, expected, actual));
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_gives_5);
     RUN_TEST(test_arrcmp);
     RUN_TEST(test_insertion_sort);
+    RUN_TEST(test_insertion_sort_mut);
     return UNITY_END();
 }
