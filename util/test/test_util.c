@@ -23,6 +23,15 @@ void test_arrcmp(void) {
 	TEST_ASSERT_EQUAL_INT(0, arrcmp(5, arr1, arr3));
 }
 
+void test_insertion_sort(void) {
+	int unsorted[7] = {5, 4, 6, 2, 3, 9, 8};
+    int actual[7];
+	insertion_sort(7, unsorted, actual);
+	int expected[7] = {2, 3, 4, 5, 6, 8, 9};
+
+	TEST_ASSERT_EQUAL_INT(1, arrcmp(7, expected, actual));
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_gives_5);
