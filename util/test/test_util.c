@@ -18,9 +18,9 @@ void test_arrcmp(void) {
     int arr1[5] = {1, 2, 3, 4, 5};
     int arr2[5] = {2, 1, 3, 4, 5};
     int arr3[5] = {1, 2, 3, 4, 6};
-	TEST_ASSERT_EQUAL_INT(1, arrcmp(5, arr1, arr1));
-	TEST_ASSERT_EQUAL_INT(0, arrcmp(5, arr1, arr2));
-	TEST_ASSERT_EQUAL_INT(0, arrcmp(5, arr1, arr3));
+	TEST_ASSERT_TRUE(arrcmp(5, arr1, arr1));
+	TEST_ASSERT_FALSE(arrcmp(5, arr1, arr2));
+	TEST_ASSERT_FALSE(arrcmp(5, arr1, arr3));
 }
 
 void test_insertion_sort(void) {
@@ -29,7 +29,7 @@ void test_insertion_sort(void) {
 	insertion_sort(7, unsorted, actual);
 	int expected[7] = {2, 3, 4, 5, 6, 8, 9};
 
-	TEST_ASSERT_EQUAL_INT(1, arrcmp(7, expected, actual));
+	TEST_ASSERT_TRUE(arrcmp(7, expected, actual));
 }
 
 void test_insertion_sort_mut(void) {
@@ -37,7 +37,7 @@ void test_insertion_sort_mut(void) {
 	insertion_sort_mut(7, actual);
 	int expected[7] = {2, 3, 4, 5, 6, 8, 9};
 
-	TEST_ASSERT_EQUAL_INT(1, arrcmp(7, expected, actual));
+	TEST_ASSERT_TRUE(arrcmp(7, expected, actual));
 }
 
 int main(void) {
